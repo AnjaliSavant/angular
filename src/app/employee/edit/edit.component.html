@@ -1,0 +1,39 @@
+
+<div class="container mt-5">
+    <h1>Update</h1>
+    <form (ngSubmit)="onSubmit(createEmployee)" #createEmployee="ngForm">
+        <div class="form-group" [class.has-error]="idValid.invalid && idValid.touched">
+            <label for="ID" class="control-label">ID</label>
+            <input type="text" class="form-control" [(ngModel)]="employee.ID" name="ID" required pattern="^[0-9]+$" #idValid="ngModel">
+            <span class="help-block" *ngIf="idValid.errors?.required && idValid.touched && idValid.invalid">ID is required...!!!</span>
+            <span class="help-block" *ngIf="idValid.errors?.pattern && idValid.touched">ID is invalid...!!!</span>
+        </div>
+        <div class="form-group" [class.has-error]="empnameValid.invalid && empnameValid.touched">
+            <label for="Name" class="control-label">Name</label>
+            <input id="Name" type="text" class="form-control" [(ngModel)]="employee.Name" #empnameValid="ngModel" name="Name" required>
+            <span class="help-block" *ngIf="empnameValid.invalid && empnameValid.touched">Name is required...!!!</span>
+            
+            
+        </div>
+        <div class="form-group" [class.has-error]="emailValid.invalid && emailValid.touched">
+            <label for="Email" class="control-label">Email</label>
+            <input id="Email" type="text" class="form-control" [(ngModel)]="employee.Email" name="Email" #emailValid="ngModel" required [email]="employee.Email!==''">
+            <span class="help-block" *ngIf="emailValid.errors?.required && emailValid.invalid && emailValid.touched">Email is required...!!!</span>
+            <span class="help-block" *ngIf=" emailValid.errors?.email && emailValid.touched">Email is invalid...!!!</span>
+        </div> 
+        <div class="form-group" [class.has-error]="addressValid.invalid && addressValid.touched">
+            <label for="">Address</label>
+            <input id="Address" type="text" class="form-control" [(ngModel)]="employee.Address" name="Address" #addressValid="ngModel" required>
+            <span class="help-block" *ngIf="addressValid.invalid && addressValid.touched">Address is required...!!!</span>
+        </div>
+        <div class="form-group" [class.has-error]="salaryValid.invalid && salaryValid.touched">
+            <label for="Salary">Salary</label>
+            <input id="Salary" type="text" class="form-control" [(ngModel)]="employee.Salary" name="Salary" #salaryValid="ngModel" required  pattern="[/d1-9]{0,7}">
+            <span class="help-block" *ngIf="salaryValid.errors?.required && salaryValid.touched && salaryValid.invalid">Salary is required...!!!</span>
+            <span class="help-block" *ngIf="salaryValid.errors?.pattern && salaryValid.touched">Salary is invalid...!!!</span>
+        </div>
+        <div class="form-group">
+            <button type="submit" [disabled]="!createEmployee.form.valid" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>

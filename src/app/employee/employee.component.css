@@ -1,0 +1,14 @@
+table {
+    width: 100%;
+  }
+
+  .mr5{
+      margin-right: 5px;
+  }
+
+  .mb5{
+    margin-bottom: 5px;
+}
+.right{
+    float: right;
+}

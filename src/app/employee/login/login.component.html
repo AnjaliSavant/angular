@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <h1>Login</h1>
+    <form (ngSubmit)="login(frmlogin)" #frmlogin="ngForm">
+        <div>
+            <label>Username</label>
+            <input id="Username" type="text" class="form-control" [(ngModel)]="loginUser.Username" #Username="ngModel" name="Username" required>
+        </div>
+        <div>
+            <label>Password</label>
+            <input id="Password" type="password" class="form-control" [(ngModel)]="loginUser.Password" #Password="ngModel" name="Password" required>
+        </div>
+        <br/>
+        <div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+        <br>
+        <!-- <div>
+            <a [routerLink]="['/login']">Logout</a>
+        </div> -->
+    </form>
+</div>

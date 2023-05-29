@@ -1,0 +1,33 @@
+<div class="container">
+    <a type="button" class="btn btn-primary mb5 right" href="/employee/create">Create New Employee</a>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Salary</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let emplpyee of employeeList">
+                        <th scope="row">{{emplpyee.ID}}</th>
+                        <td>{{emplpyee.Name}}</td>
+                        <td>{{emplpyee.Email}}</td>
+                        <td>{{emplpyee.Address}}</td>
+                        <td>{{emplpyee.Salary}}</td>
+                        <td>
+                            <a type="button" class="btn btn-primary mr5" href="/employee/{{emplpyee.ID}}/view"><i class="far fa-eye"></i>View</a>
+                            <a type="button" class="btn btn-success mr5" href="/employee/{{emplpyee.ID}}/edit"><i class="fas fa-edit"></i>Edit</a>
+                            <a type="button" class="btn btn-danger mr5" href="/employee/{{emplpyee.ID}}/delete"><i class="icon-name mat-caption">Delete</i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
